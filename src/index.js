@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App'; // Adjust path if necessary
+import './index.css'; // Optional, if you have CSS
 
+// Ensure the root element exists in index.html
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  //code
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
 
