@@ -1,0 +1,95 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  padding-top: 50px; /* Added padding to prevent content from being hidden under fixed navbar */
+}
+
+.navbar {
+  position: fixed; /* Fix the navbar to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  z-index: 1000; /* Ensures the navbar is above other content */
+}
+
+.navbar:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.navbar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  transition: transform 0.3s;
+}
+
+.navbar img:hover {
+  transform: rotate(360deg);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  margin: 0 15px;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #333;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.navbar a:hover {
+  color: #000;
+}
+
+.navbar a:hover ~ a,
+.navbar a:hover ~ img,
+.navbar a:hover ~ a ~ a,
+.navbar a:hover ~ a ~ a ~ a,
+.navbar a:hover ~ a ~ a ~ a ~ a {
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .navbar img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .navbar a {
+    margin: 5px 10px;
+    font-size: 14px;
+  }
+}
